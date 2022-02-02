@@ -1,16 +1,17 @@
 # This is a basic workflow to help you get started with Actions
 
 name: Build Site
-on:
+
+on: 
   push:
+  pull_request:
     branches:
       - main
 jobs:
   build:
     runs-on: ubuntu-latest
     
-    steps:
-    
+    steps:    
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
       with:
