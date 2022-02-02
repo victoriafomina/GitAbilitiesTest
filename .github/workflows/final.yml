@@ -22,6 +22,7 @@ jobs:
         npm install -g yarn
         npm install -g gatsby-cli
         npm install --force
+        npm init
         
     - name: One folder upper
       run: 
