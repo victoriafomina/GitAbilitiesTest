@@ -23,10 +23,6 @@ jobs:
         npm install -g gatsby-cli
         npm install --force
         npm init
-        
-    - name: One folder upper
-      run: 
-        cd ..
           
     - name: Build Site
       run:
