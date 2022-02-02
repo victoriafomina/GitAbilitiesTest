@@ -22,8 +22,11 @@ jobs:
         npm install -g yarn
         npm install -g gatsby-cli
         npm install --force
+        
+    - name: One folder upper
+      run: 
+        cd ..
           
     - name: Build Site
       run:
-        cd ..
         npm run build
