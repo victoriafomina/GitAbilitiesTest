@@ -1,0 +1,37 @@
+name: UTBot Java build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-utbot-java:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-20.04]     
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v2
+      with:
+        java-version: '8'
+        distribution: 'liberica'
+        java-package: jdk+fx
+    - uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: 6.8
+        
+    - name: Build UTBot Java
+      run: | 
+        exit 1
+        
+    - name: Archive tests report    
+      if: ${{ failure() }}
+      run: |
+        tar -czpf tests_run_report.tar.gz *
+        uses: actions/upload-artifact@v2
+        with:
+          name: tests_run_report.tar.gz
+          path: tests_run_report.tar.gz
