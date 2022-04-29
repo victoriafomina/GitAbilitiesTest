@@ -23,15 +23,6 @@ jobs:
       with:
         gradle-version: 6.8
         
-    - name: Build UTBot Java
-      run: | 
-        exit 1
-        
-    - name: Archive tests report    
-      if: ${{ failure() }}
-      run: |
-        tar -czpf tests_run_report.tar.gz *
-        uses: actions/upload-artifact@v2
-        with:
-          name: tests_run_report.tar.gz
-          path: tests_run_report.tar.gz
+    - name: Kotlinc
+      run:
+        kotlinc --help
