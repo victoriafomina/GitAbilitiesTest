@@ -25,4 +25,4 @@ jobs:
         
     - name: Kotlinc
       run:
-        kotlinc --help
+        kotlinc -help
