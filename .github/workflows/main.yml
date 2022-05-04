@@ -27,3 +27,4 @@ jobs:
       run: |
         kotlinc -help
         kotlinc -kotlin-home
+        ls /bin/kotlinc
