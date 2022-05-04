@@ -26,5 +26,5 @@ jobs:
     - name: Kotlinc
       run: |
         kotlinc -help
-        kotlinc -kotlin-home
+        kotlinc -kotlin-home /bin/kotlinc
         ls /bin/kotlinc
