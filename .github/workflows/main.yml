@@ -27,7 +27,9 @@ jobs:
       run: |
         ls /opt/hostedtoolcache/Java_Liberica_jdk+fx/8.0.332-9/x64/bin
     - name: var2    
-      run: ls /snap/bin:/usr/local/sbin
+      run: ls /snap/bin
+    - name: varr
+      run: ls /usr/local/sbin
     - name: var3
       run: ls /usr/local/bin
     - name: var4
