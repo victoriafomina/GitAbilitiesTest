@@ -35,7 +35,7 @@ jobs:
     - name: var4
       run: ls /usr/sbin
     - name: var5
-      run: ls /usr/bin
+      run: ls /usr/bin/kotlinc
     - name: va6 
       run: ls /sbin
     - name: var7
