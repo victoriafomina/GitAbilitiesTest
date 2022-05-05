@@ -25,18 +25,4 @@ jobs:
         
     - name: Kotlinc
       run: |
-        ls /opt/hostedtoolcache/Java_Liberica_jdk+fx/8.0.332-9/x64/bin
-    - name: var2    
-      run: ls /snap/bin
-    - name: varr
-      run: ls /usr/local/sbin
-    - name: var3
-      run: ls /usr/local/bin
-    - name: var4
-      run: ls /usr/sbin
-    - name: var5
-      run: ls /usr/bin/kotlinc
-    - name: va6 
-      run: ls /sbin
-    - name: var7
-      run: ls /snap/bin
+        ls /usr/bin/kotlinc/bin
