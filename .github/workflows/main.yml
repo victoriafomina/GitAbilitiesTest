@@ -25,6 +25,4 @@ jobs:
         
     - name: Kotlinc
       run: |
-        kotlinc -help
-        kotlinc -kotlin-home /bin/kotlinc
-        ls /bin/kotlinc
+        echo "$PATH"
