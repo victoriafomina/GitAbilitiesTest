@@ -28,6 +28,5 @@ jobs:
         ls /nonexistent
         
     - name: Upload utbot-framework logs
-      if: ${{ always() }}
       run: |
         echo "Hello world"
