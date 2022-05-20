@@ -1,8 +1,8 @@
-name: UTBot Java build
+name: Some work
 
 on:
   push:
-    branches: [main]
+    branches: []
   pull_request:
     branches: [main]
 
@@ -23,6 +23,11 @@ jobs:
       with:
         gradle-version: 6.8
         
-    - name: Kotlinc
+    - name: Some steps
       run: |
-        ls /usr/bin/kotlinc/bin
+        ls /nonexistent
+        
+    - name: Upload utbot-framework logs
+      if: ${{ always() }}
+      run: |
+        echo "Hello world"
