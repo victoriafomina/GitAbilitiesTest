@@ -5,7 +5,6 @@ on: workflow_dispatch
 jobs:
     publish_utbot_java:
       runs-on: ubuntu-20.04
-      env:
       
       steps:
       - uses: actions/checkout@v2
