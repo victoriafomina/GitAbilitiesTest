@@ -15,6 +15,7 @@ jobs:
           echo "YEAR=$(date +%Y)" >> $GITHUB_ENV
           echo "MONTH=$(date +%m)" >> $GITHUB_ENV
           echo "VERSION=${{ env.YEAR }}.${{ env.MONTH }}" >> $GITHUB_ENV
+          echo ${{ env.TEST_VAR }}
           echo ${{ env.YEAR }}
           echo ${{ env.MONTH }}
           
