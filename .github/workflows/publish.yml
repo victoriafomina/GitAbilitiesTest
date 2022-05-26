@@ -1,4 +1,4 @@
-name: Publish utbot-intellij and utbot-cli as an archive
+name: Publish
 
 on: workflow_dispatch
   
