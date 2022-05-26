@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
         name:
-          description: "It adds postfix to version. E.g. version is 2022.5, postfix is alpha. Result version: 2022.5-alpha"
+          description: "It adds alpha or beta postfix to version."
           required: false
           options: 
           - alpha
