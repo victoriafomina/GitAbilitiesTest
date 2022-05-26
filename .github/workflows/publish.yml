@@ -14,7 +14,7 @@ jobs:
           echo "TEST_VAR=5" >> $GITHUB_ENV
           echo "YEAR=$(date +%Y)" >> $GITHUB_ENV
           echo "MONTH=$(date +%m)" >> $GITHUB_ENV
-          echo "VERSION=${{ env.YEAR }}.${{ env.MONTH }}" >> $GITHUB_ENV
+          echo "VERSION=$(echo ${{ env.YEAR }}.) && echo ${{ env.MONTH }})" >> $GITHUB_ENV
           
       - name: Get version
         run: |
