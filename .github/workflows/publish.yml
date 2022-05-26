@@ -7,7 +7,8 @@ on:
           type: choice
           description: "It adds alpha or beta postfix to version."
           required: false
-          options: 
+          options:
+          - no-postfix
           - alpha
           - beta
 
