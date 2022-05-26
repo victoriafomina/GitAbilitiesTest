@@ -6,7 +6,8 @@ on:
         version-postfix:
           type: choice
           description: "It adds alpha or beta postfix to version."
-          required: false
+          required: true
+          default: no-postfix
           options:
           - no-postfix
           - alpha
@@ -16,21 +17,12 @@ jobs:
     publish_utbot_java:
       runs-on: ubuntu-20.04
 
-      steps:
-      - uses: actions/github-script@v1
-        env:
-          type_of_release: ${{ steps.step-id.outputs.output-version-postfix }}
-        with:
-          script:
-            console.log(process.env.type_of_release)
-          
+      steps:          
       - uses: actions/checkout@v2
           
-      - name: Set environment variables
-        run: |
+      - name: Set environment variable
+        run:
           echo "VERSION="$(date +%Y).$(date +%-m)"" >> $GITHUB_ENV
-          
-          
-      - name: Get version
-        run: |
+      
+      - name: Print version
           echo ${{ env.VERSION }}
