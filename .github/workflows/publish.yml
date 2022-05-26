@@ -1,7 +1,15 @@
 name: Publish
 
-on: workflow_dispatch
-  
+on: 
+  workflow_dispatch:
+    inputs:
+        name:
+          description: "It adds postfix to version. E.g. version is 2022.5, postfix is alpha. Result version: 2022.5-alpha"
+          required: false
+          options: 
+          - alpha
+          - beta
+
 jobs:
     publish_utbot_java:
       runs-on: ubuntu-20.04
