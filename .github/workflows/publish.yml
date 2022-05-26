@@ -18,10 +18,11 @@ jobs:
         with:
           gradle-version: 6.8
           
-      - name: Set environment variables |
-        run: echo "YEAR=$(date +%Y)" >> $GITHUB_ENV
-        run: echo "MONTH=$(date +%M)" >> $GITHUB_ENV
-        run: echo "VERSION=${{ env.YEAR }}.${{ env.MONTH }}" >> $GITHUB_ENV
+      - name: Set environment variables
+        run: |
+          echo "YEAR=$(date +%Y)" >> $GITHUB_ENV
+          echo "MONTH=$(date +%M)" >> $GITHUB_ENV
+          echo "VERSION=${{ env.YEAR }}.${{ env.MONTH }}" >> $GITHUB_ENV
           
       - name: Get version
         run: echo ${{ env.VERSION }}
