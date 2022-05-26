@@ -6,18 +6,18 @@ jobs:
     publish_utbot_java:
       runs-on: ubuntu-20.04
       
+      env:
+        type_of_release: ${{ steps.step-id.outputs.output-name }}
+      
       steps:
       - uses: actions/checkout@v2
           
       - name: Set environment variables
         run: |
-          echo "YEAR=$(date +%Y)" >> $GITHUB_ENV
-          echo "MONTH=$(date +%m)" >> $GITHUB_ENV
           echo "VERSION="$(date +%Y).$(date +%-m)"" >> $GITHUB_ENV
+          console.log(process.env.type_of_release)
+          
           
       - name: Get version
         run: |
           echo ${{ env.VERSION }}
-          echo ${{ env.TEST_VAR }}
-          echo ${{ env.YEAR }}
-          echo ${{ env.MONTH }}
