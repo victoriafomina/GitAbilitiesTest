@@ -13,7 +13,7 @@ jobs:
         run: |
           echo "YEAR=$(date +%Y)" >> $GITHUB_ENV
           echo "MONTH=$(date +%m)" >> $GITHUB_ENV
-          echo "VERSION="$(date +%Y).$(date +%m)" >> $GITHUB_ENV
+          echo "VERSION="$(date +%Y).$(date +%m)"" >> $GITHUB_ENV
           
       - name: Get version
         run: |
