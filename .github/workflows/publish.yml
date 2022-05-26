@@ -3,7 +3,8 @@ name: Publish
 on: 
   workflow_dispatch:
     inputs:
-        name:
+        version-postfix:
+          type: choice
           description: "It adds alpha or beta postfix to version."
           required: false
           options: 
@@ -17,7 +18,7 @@ jobs:
       steps:
       - uses: actions/github-script@v1
         env:
-          type_of_release: ${{ steps.step-id.outputs.output-name }}
+          type_of_release: ${{ steps.step-id.outputs.output-version-postfix }}
         with:
           script:
             console.log(process.env.type_of_release)
