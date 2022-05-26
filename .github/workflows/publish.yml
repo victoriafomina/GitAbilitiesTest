@@ -25,4 +25,5 @@ jobs:
           echo "VERSION="$(date +%Y).$(date +%-m)"" >> $GITHUB_ENV
       
       - name: Print version
+        run:
           echo ${{ env.VERSION }}
