@@ -5,17 +5,20 @@ on: workflow_dispatch
 jobs:
     publish_utbot_java:
       runs-on: ubuntu-20.04
-      
-      env:
-        type_of_release: ${{ steps.step-id.outputs.output-name }}
-      
+
       steps:
+      - uses: actions/github-script@v1
+        env:
+          type_of_release: ${{ steps.step-id.outputs.output-name }}
+        with:
+          script:
+            console.log(process.env.type_of_release)
+          
       - uses: actions/checkout@v2
           
       - name: Set environment variables
         run: |
           echo "VERSION="$(date +%Y).$(date +%-m)"" >> $GITHUB_ENV
-          console.log(process.env.type_of_release)
           
           
       - name: Get version
