@@ -23,7 +23,16 @@ jobs:
       - name: Set environment variable
         run:
           echo "VERSION="$(date +%Y).$(date +%-m)"" >> $GITHUB_ENV
+          echo "POSTFIX=${{ github.event.inputs.version-postfix }}" >> $GITHUB_ENV
       
       - name: Print version
         run:
           echo ${{ env.VERSION }}
+          echo ${{ env.POSTFIX }}
+          
+      - name: Work with inputs
+        if: ${{ env.POSTFIX }} == "alpha" || ${{ env.POSTFIX }} == "beta"
+        run:
+          echo "Alpha or beta"
+          
+
