@@ -11,8 +11,9 @@ jobs:
           
       - name: Set environment variables
         run: |
-          echo "YEAR=$(echo date +%Y)" >> $GITHUB_ENV
-          echo "MONTH=$(echo date +%m)" >> $GITHUB_ENV
+          echo "TEST_VAR=5" >> $GITHUB_ENV
+          echo "YEAR=$(date +%Y)" >> $GITHUB_ENV
+          echo "MONTH=$(date +%m)" >> $GITHUB_ENV
           echo "VERSION=${{ env.YEAR }}.${{ env.MONTH }}" >> $GITHUB_ENV
           echo ${{ env.YEAR }}
           echo ${{ env.MONTH }}
