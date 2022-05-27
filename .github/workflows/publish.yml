@@ -1,4 +1,4 @@
-name: Publish
+name: "Publish: this and this"
 
 on: 
   workflow_dispatch:
