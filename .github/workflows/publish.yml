@@ -32,7 +32,7 @@ jobs:
           
       - name: Work with inputs
         run: |
-          if [ ${{ env.POSTFIX }} == "alpha" || ${{ env.POSTFIX }} == "beta" ] then
+          if [ -z ${{ env.POSTFIX }} == "alpha" || -z ${{ env.POSTFIX }} == "beta" ] then
             echo "VERSION="$(date +%Y).$(date +%-m)-${{ env.POSTFIX }}"" >> $GITHUB_ENV
             echo "Alpha or beta"
           else
