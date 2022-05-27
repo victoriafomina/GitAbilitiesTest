@@ -30,14 +30,10 @@ jobs:
           echo ${{ env.VERSION }}
           echo ${{ env.POSTFIX }}
           
-      - name: Create version with postfix 'alpha'
+      - name: Create version with postfix
         if: ${{ (env.POSTFIX == 'alpha') || (env.POSTFIX == 'beta') }}
         run: |
           echo "Alpha or beta"
+          echo "VERSION="${{ env.VERSION }-${{ env.POSTFIX }}}"" >> $GITHUB_ENV
           echo ${{ env.POSTFIX }}
-          
-      - name: Create version with postfix 'beta'
-        if: ${{ env.POSTFIX == 'beta' }}
-        run: |
-          echo "Alpha or beta"
-          echo ${{ env.POSTFIX }}
+          echo ${{ env.VERSION }}
