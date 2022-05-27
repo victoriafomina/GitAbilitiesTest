@@ -32,7 +32,7 @@ jobs:
           
       - name: Work with inputs
         run: |
-          if ${{ env.POSTFIX }} == "alpha" || ${{ env.POSTFIX }} == "beta"
+          if [ ${{ env.POSTFIX }} == "alpha" || ${{ env.POSTFIX }} ] then == "beta"
             echo "Alpha or beta"          
           fi
           
