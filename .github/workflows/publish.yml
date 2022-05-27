@@ -31,8 +31,8 @@ jobs:
           echo ${{ env.POSTFIX }}
           
       - name: Work with inputs
-        if: ${{ env.POSTFIX }} == "alpha" || ${{ env.POSTFIX }} == "beta"
-        run:
-          echo "Alpha or beta"
+        run: |
+          if ${{ env.POSTFIX }} == "alpha" || ${{ env.POSTFIX }} == "beta"
+            echo "Alpha or beta"          
+          fi
           
-
