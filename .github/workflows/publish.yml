@@ -34,6 +34,6 @@ jobs:
         if: ${{ (env.POSTFIX == 'alpha') || (env.POSTFIX == 'beta') }}
         run: |
           echo "Alpha or beta"
-          echo "VERSION=${{ env.VERSION }-${{ env.POSTFIX }}}" >> $GITHUB_ENV
+          echo "VERSION=${{ env.VERSION }-${{ env.POSTFIX }}" >> $GITHUB_ENV
           echo ${{ env.POSTFIX }}
           echo ${{ env.VERSION }}
