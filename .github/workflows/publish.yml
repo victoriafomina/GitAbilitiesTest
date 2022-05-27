@@ -20,18 +20,24 @@ jobs:
       steps:          
       - uses: actions/checkout@v2
           
-      - name: Set environment variable
+      - name: Set environment variables
         run: |
           echo "VERSION="$(date +%Y).$(date +%-m)"" >> $GITHUB_ENV
           echo "POSTFIX=${{ github.event.inputs.version-postfix }}" >> $GITHUB_ENV
       
-      - name: Print version
+      - name: Print envs
         run: |
           echo ${{ env.VERSION }}
           echo ${{ env.POSTFIX }}
           
-      - name: Work with inputs
+      - name: Create version with postfix 'alpha'
         if: ${{ env.POSTFIX == 'alpha' }}
+        run: |
+          echo "Alpha or beta"
+          echo ${{ env.POSTFIX }}
+          
+      - name: Create version with postfix 'beta'
+        if: ${{ env.POSTFIX == 'beta' }}
         run: |
           echo "Alpha or beta"
           echo ${{ env.POSTFIX }}
