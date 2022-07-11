@@ -21,10 +21,11 @@ jobs:
     - name: "Output information"
       run: |
         set -o xtrace
-        echo "The current branch is ahead of the [origin/main] by ${{ env.COMMITS_AHEAD_MAIN }} commits"
+        echo "The ${GITHUB_REF_NAME} is ahead of the [origin/main] by ${{ env.COMMITS_AHEAD_MAIN }} commits"
         
-    - name: "Fails if the current branch is ahead of the [origin/main] by more than 40 commits"
+    - name: "Fails if the ${GITHUB_REF_NAME} is ahead of the [origin/main] by more than 40 commits"
       if: ${{ env.COMMITS_AHEAD_MAIN }} > 40
       run: |
+        echo "${{ env.COMMITS_AHEAD_MAIN }} > 40"
         set -o xtrace
         exit 1
