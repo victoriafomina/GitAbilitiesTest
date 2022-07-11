@@ -10,20 +10,15 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v3
-    
-    - name: "Add current branch to env"
-      run: |
-        set -o xtrace
-        echo "CURRENT_BRANCH="${GITHUB_REF##*/}"" >> $GITHUB_ENV
 
     - name: "Add commits number ahead of the main to env"
       run: |
         set -o xtrace
         git fetch
-        COMMITS_AHEAD_MAIN=$(git rev-list --left-right --count ${{ env.CURRENT_BRANCH }}...origin/main)
+        COMMITS_AHEAD_MAIN=$(git rev-list --left-right --count ${GITHUB_REF_NAME}...origin/main)
         echo $COMMITS_AHEAD_MAIN >> $GITHUB_ENV
         
     - name: "Output information"
       run: |
         set -o xtrace
-        echo "Commits number the ["${{ env.CURRENT_BRANCH }}"] is ahead of the [origin/main]: ${{ env.COMMITS_AHEAD_MAIN }}"
+        echo "Commits number the ["${GITHUB_REF_NAME}"] is ahead of the [origin/main]: ${{ env.COMMITS_AHEAD_MAIN }}"
