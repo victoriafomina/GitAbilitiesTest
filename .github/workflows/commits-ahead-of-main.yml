@@ -11,11 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Git fetch
-      run: |
-        set -o xtrace
-        git fetch
-    
     - name: "Add current branch to env"
       run: |
         set -o xtrace
@@ -24,8 +19,7 @@ jobs:
     - name: "Add commits number ahead of the main to env"
       run: |
         set -o xtrace
-        echo "COMMITS_AHEAD_MAIN="$(git rev-list --left-right --count origin/main-2...origin/main)"" >> $GITHUB_ENV
-        #echo "COMMITS_AHEAD_MAIN="$(git rev-list --cherry "${{ env.CURRENT_BRANCH }}"...origin/main --count)"" >> $GITHUB_ENV
+        echo "COMMITS_AHEAD_MAIN="$(git rev-list --left-right --count "${{ env.CURRENT_BRANCH }}"...origin/main)"" >> $GITHUB_ENV
         
     - name: "Output information"
       run: |
