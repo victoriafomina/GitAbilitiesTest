@@ -30,7 +30,7 @@ jobs:
     - name: "Add commits number ahead of the main to env"
       run: |
         set -o xtrace
-        echo "COMMITS_AHEAD_MAIN="$(git rev-list "${{ env.CURRENT_BRANCH }}"..orgigin/main --count)"" >> $GITHUB_ENV
+        echo "COMMITS_AHEAD_MAIN="$(git rev-list "${{ env.CURRENT_BRANCH }}"..origin/main --count)"" >> $GITHUB_ENV
         
     - name: "Output information"
       run: |
