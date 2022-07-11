@@ -23,9 +23,9 @@ jobs:
     - name: "Add commits number ahead of the main to env"
       run: |
         set -o xtrace
-        echo "COMMITS_AHEAD_MAIN="$(git rev-list ${{ env.CURRENT_BRANCH }}..main --count)"" >> $GITHUB_ENV
+        echo "COMMITS_AHEAD_MAIN="$(git rev-list --left-only "${{ env.CURRENT_BRANCH }}"..origin/main --count)"" >> $GITHUB_ENV
         
     - name: "Output information"
       run: |
         set -o xtrace
-        echo "Commits number ["${{ env.CURRENT_BRANCH }}"] is ahead of the [origin main]: ${{ env.COMMITS_AHEAD_MAIN }}"
+        echo "Commits number the ["${{ env.CURRENT_BRANCH }}"] is ahead of the [origin/main]: ${{ env.COMMITS_AHEAD_MAIN }}"
