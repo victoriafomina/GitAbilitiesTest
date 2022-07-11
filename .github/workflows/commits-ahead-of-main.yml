@@ -9,7 +9,7 @@ jobs:
   commits_ahead_of_main:
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
 
     - name: "Add commits number ahead of the main to env"
       run: |
