@@ -19,6 +19,7 @@ jobs:
     - name: "Add commits number ahead of the main to env"
       run: |
         set -o xtrace
+        git fetch
         echo "COMMITS_AHEAD_MAIN="$(git rev-list --left-right --count "${{ env.CURRENT_BRANCH }}"...origin/main)"" >> $GITHUB_ENV
         
     - name: "Output information"
