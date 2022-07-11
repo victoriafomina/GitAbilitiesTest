@@ -1,8 +1,5 @@
 name: "Count commits ahead of the main"
 
-env:
-  COMMITS_AHEAD_MAX: 5
-
 on:
   workflow_dispatch:
 #  pull_request:
@@ -26,8 +23,8 @@ jobs:
         set -o xtrace
         echo "The ${GITHUB_REF_NAME} is ahead of the [origin/main] by ${{ env.COMMITS_AHEAD_MAIN }} commits"
         
-    - name: "Fails if the current branch is ahead of the [origin/main] by more than ${{ env.COMMITS_AHEAD_MAX }} commits"
-      if: ${{ env.COMMITS_AHEAD_MAIN > env.COMMITS_AHEAD_MAX }}
+    - name: "Fails if the current branch is ahead of the [origin/main] by more than 5 commits"
+      if: ${{ env.COMMITS_AHEAD_MAIN > 9 }}
       run: |
         set -o xtrace
         exit 1
