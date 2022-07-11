@@ -24,7 +24,7 @@ jobs:
         echo "The current branch is ahead of the [origin/main] by ${{ env.COMMITS_AHEAD_MAIN }} commits"
         
     - name: "Fails if the current branch is ahead of the [origin/main] by more than 40 commits"
-      if: ${{ env.COMMITS_AHEAD_MAIN }} > 5
+      if: ${{ env.COMMITS_AHEAD_MAIN }} > 40
       run: |
         set -o xtrace
         exit 1
