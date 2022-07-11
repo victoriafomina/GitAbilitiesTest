@@ -9,7 +9,9 @@ jobs:
   commits_ahead_of_main:
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
     - name: "Add commits number ahead of the main to env"
       run: |
@@ -17,9 +19,6 @@ jobs:
         git fetch
         COMMITS_AHEAD_MAIN=$(git rev-list --left-right --count ${GITHUB_REF_NAME}...origin/main)
         echo $COMMITS_AHEAD_MAIN >> $GITHUB_ENV
-    - name: Setup tmate session
-      if: ${{ always() }}
-      uses: mxschmitt/action-tmate@v3
         
     - name: "Output information"
       run: |
