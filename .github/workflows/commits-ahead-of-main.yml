@@ -13,7 +13,6 @@ jobs:
     
     - name: "Add current branch to env"
       run: |
-        set -o xtrace
         echo "CURRENT_BRANCH="${GITHUB_REF##*/}"" >> $GITHUB_ENV
 
     - name: "Add commits number ahead of the main to env"
