@@ -17,8 +17,7 @@ jobs:
       run: |
         set -o xtrace
         git fetch
-        COMMITS_AHEAD_MAIN=$(git rev-list --left-right --count ${GITHUB_REF_NAME}...origin/main)
-        echo $COMMITS_AHEAD_MAIN >> $GITHUB_ENV
+        echo COMMITS_AHEAD_MAIN=$(git rev-list --left-only --count ${GITHUB_REF_NAME}...origin/main) >> $GITHUB_ENV
         
     - name: "Output information"
       run: |
