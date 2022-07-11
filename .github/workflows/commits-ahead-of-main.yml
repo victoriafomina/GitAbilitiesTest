@@ -24,7 +24,7 @@ jobs:
         echo "The ${GITHUB_REF_NAME} is ahead of the [origin/main] by ${{ env.COMMITS_AHEAD_MAIN }} commits"
         
     - name: "Fails if the current branch is ahead of the [origin/main] by more than 5 commits"
-      if: ${{ env.COMMITS_AHEAD_MAIN > 9 }}
+      if: ${{ env.COMMITS_AHEAD_MAIN > 5 }}
       run: |
         set -o xtrace
         exit 1
