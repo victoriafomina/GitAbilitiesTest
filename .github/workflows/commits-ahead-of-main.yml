@@ -20,12 +20,6 @@ jobs:
       run: |
         set -o xtrace
         echo "CURRENT_BRANCH="${GITHUB_REF##*/}"" >> $GITHUB_ENV
-        
-    - name: Print info
-      run: |
-        set -o xtrace
-        git branch
-        git status
 
     - name: "Add commits number ahead of the main to env"
       run: |
@@ -36,4 +30,3 @@ jobs:
       run: |
         set -o xtrace
         echo "Commits number the ["${{ env.CURRENT_BRANCH }}"] is ahead of the [origin/main]: ${{ env.COMMITS_AHEAD_MAIN }}"
-  
