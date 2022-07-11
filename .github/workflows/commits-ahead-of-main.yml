@@ -14,6 +14,6 @@ jobs:
     - name: "Add commits number ahead of the main to env"
       run: |
         echo "CURRENT_BRANCH="$(${GITHUB_REF##*/})"" >> $GITHUB_ENV
-        echo "COMMITS_AHEAD_MAIN="$(git rev-list "${CURRENT_BRANCH}"..origin main --count)"" >> $GITHUB_ENV
-        echo "Commits number ["${CURRENT_BRANCH}"] is ahead of the [origin main]: ${COMMITS_AHEAD_MAIN}"
+        echo "COMMITS_AHEAD_MAIN="$(git rev-list "${env.CURRENT_BRANCH}"..origin main --count)"" >> $GITHUB_ENV
+        echo "Commits number ["${CURRENT_BRANCH}"] is ahead of the [origin main]: ${env.COMMITS_AHEAD_MAIN}"
   
