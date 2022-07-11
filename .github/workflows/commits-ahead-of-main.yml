@@ -1,0 +1,18 @@
+name: "Count commits ahead of the main"
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  commits_ahead_of_main:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v3
+
+  name: "Add commits number ahead of the main to env"
+  run: |
+    echo "CURRENT_BRANCH="$(${GITHUB_REF##*/})"" >> $GITHUB_ENV
+    echo "COMMITS_AHEAD_MAIN="$(git rev-list "${CURRENT_BRANCH}"..origin main --count)"" >> $GITHUB_ENV
+    echo "Commits number ["${CURRENT_BRANCH}"] is ahead of the [origin main]: ${COMMITS_AHEAD_MAIN}"
+  
